@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  layout:decorate="~{layouts/layout}" >
+<head>
+<title>회원정보수정</title>
+</head>
+<div layout:fragment="main">
+<!--/*
+		  th:action="@{updateMemberAction}" csrf token 삽입
+		  Controller의 model 객체에 인증정보인 MemberVO가 할당되어 있음 	
+   */-->
+<form method="post" th:action="@{updateMemberAction}">
+	아이디 : <input type="text" name="id" placeholder="아이디" th:value="${member.id}" readonly>
+	<br>패스워드 : <input type="text" name="password" placeholder="패스워드" required="required">
+	<br>이름 : <input type="text" name="name" 	th:value="${member.name}" placeholder="이름" required="required"> 
+	<br>주소 : <input type="text" 	name="address" 	th:value="${member.address}" placeholder="주소" required="required"> 
+	<br><input type="submit" value="회원정보수정">
+</form>
+</div>
+</html>
